@@ -1,2 +1,5 @@
-package com.hayden.hmpetclinic.model;public class Vet {
+package com.hayden.hmpetclinic.model;
+
+public class Vet extends Person{
+
 }
