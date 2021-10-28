@@ -1,6 +1,6 @@
 package com.hayden.hmpetclinic.model;
 
-public class PetType {
+public class PetType extends BaseEntity{
 
     private String Name;
 
