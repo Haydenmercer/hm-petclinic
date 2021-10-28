@@ -3,18 +3,18 @@
     <parent>
         <artifactId>hm-petclinic</artifactId>
         <groupId>com.hayden</groupId>
-        <version>1.1-SNAPSHOT</version>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>pet-clinic-web</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
             <artifactId>pet-clinic-data</artifactId>
             <groupId>com.hayden</groupId>
-            <version>1.1-SNAPSHOT</version>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
         <dependency>
@@ -41,19 +41,6 @@
 
     </dependencies>
 
-    <build>
-    <pluginManagement>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-release-plugin</artifactId>
-                <configuration>
-                    <goals>install</goals>
-                </configuration>
-            </plugin>
-        </plugins>
-    </pluginManagement>
-    </build>
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
