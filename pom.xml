@@ -14,7 +14,7 @@
 	</parent>
 	<groupId>com.hayden</groupId>
 	<artifactId>hm-petclinic</artifactId>
-	<version>1.1-SNAPSHOT</version>
+	<version>1.1</version>
 	<name>hm-petclinic</name>
 	<description>Petclinic project building from scratch</description>
 	<properties>
@@ -40,7 +40,7 @@
 
 	<scm>
 		<developerConnection>scm:git:git@github.com:Haydenmercer/hm-petclinic.git</developerConnection>
-		<tag>HEAD</tag>
+		<tag>hm-petclinic-1.1</tag>
 	</scm>
 
 </project>
