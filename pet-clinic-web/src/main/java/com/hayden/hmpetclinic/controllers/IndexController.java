@@ -1,6 +1,5 @@
-package controllers;
+package com.hayden.hmpetclinic.controllers;
 
-import jdk.jfr.Category;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
