@@ -1,8 +1,8 @@
 package com.hayden.hmpetclinic.services.map;
 
-import com.hayden.hmpetclinic.model.Pet;
-import com.hayden.hmpetclinic.services.PetService;
+import com.hayden.hmpetclinic.model.Vet;
+import com.hayden.hmpetclinic.services.VetService;
 
-public class VetMapService extends AbstractMapService<Pet, Long> implements PetService {
+public class VetMapService extends AbstractMapService<Vet, Long> implements VetService {
 
 }
