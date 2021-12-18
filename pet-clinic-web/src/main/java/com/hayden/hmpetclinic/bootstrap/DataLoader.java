@@ -1,13 +1,7 @@
 package com.hayden.hmpetclinic.bootstrap;
 
-import com.hayden.hmpetclinic.model.Owner;
-import com.hayden.hmpetclinic.model.Pet;
-import com.hayden.hmpetclinic.model.PetType;
-import com.hayden.hmpetclinic.model.Vet;
-import com.hayden.hmpetclinic.services.OwnerService;
-import com.hayden.hmpetclinic.services.PetService;
-import com.hayden.hmpetclinic.services.PetTypeService;
-import com.hayden.hmpetclinic.services.VetService;
+import com.hayden.hmpetclinic.model.*;
+import com.hayden.hmpetclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -20,17 +14,25 @@ public class DataLoader  implements CommandLineRunner {
     private final VetService vetService;
     private final PetService petService;
     private final PetTypeService petTypeService;
+    private final SpecialtyService specialtyService;
 
     //Autowired annotation not required for constructors
-    public DataLoader(OwnerService ownerService, VetService vetService, PetService petService, PetTypeService petTypeService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetService petService, PetTypeService petTypeService, SpecialtyService specialtyService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petService = petService;
         this.petTypeService = petTypeService;
+        this.specialtyService = specialtyService;
     }
 
     @Override
     public void run(String... args) throws Exception {
+        if (petTypeService.findAll().size() == 0) {
+            loadData();
+        }
+    }
+
+    private void loadData() {
         PetType cat = new PetType();
         cat.setName("Cat");
         PetType savedCat = petTypeService.save(cat); //Return saved object as it will contain generated ID.
@@ -47,7 +49,6 @@ public class DataLoader  implements CommandLineRunner {
         owner1.setAddress("123 Lane Road");
         owner1.setCity("Orgrimmar");
         owner1.setTelephone("07182775554");
-
 
         Owner owner2 = new Owner();
         owner2.setFirstName("Bob");
@@ -78,19 +79,34 @@ public class DataLoader  implements CommandLineRunner {
 
         System.out.println("Loaded Pets");
 
+        Specialty radiology = new Specialty();
+        radiology.setDescription("Radiology");
+        Specialty savedRadiology = specialtyService.save(radiology);
+
+        Specialty surgery = new Specialty();
+        surgery.setDescription("Surgery");
+        Specialty savedSurgery = specialtyService.save(surgery);
+
+        Specialty dentistry = new Specialty();
+        dentistry.setDescription("Dentistry");
+        Specialty savedDentistry = specialtyService.save(dentistry);
+
+        System.out.println("Loaded Specialties");
+
         Vet vet1 = new Vet();
         vet1.setFirstName("Sam");
         vet1.setLastName("Axe");
+        vet1.getSpecialties().add(savedRadiology);
 
         vetService.save(vet1);
 
         Vet vet2 = new Vet();
         vet2.setFirstName("Roger");
         vet2.setLastName("Drinkwater");
+        vet2.getSpecialties().add(savedSurgery);
 
         vetService.save(vet2);
 
         System.out.println("Loaded Vets");
-
     }
 }
