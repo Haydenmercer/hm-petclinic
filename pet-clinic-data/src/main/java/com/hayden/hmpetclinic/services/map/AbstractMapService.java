@@ -46,5 +46,4 @@ public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> 
         return map.size() > 0 ? Collections.max(map.keySet()) + 1 : 1L; //could also use try/catch with NoSuchElementException
     }
 
-
 }
