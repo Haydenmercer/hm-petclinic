@@ -1,14 +1,5 @@
 package com.hayden.hmpetclinic.model;
 
-public class PetType extends BaseEntity{
+public class PetType extends NamedEntity{
 
-    private String Name;
-
-    public String getName() {
-        return Name;
-    }
-
-    public void setName(String name) {
-        Name = name;
-    }
 }
