@@ -2,6 +2,7 @@ package com.hayden.hmpetclinic.bootstrap;
 
 import com.hayden.hmpetclinic.model.*;
 import com.hayden.hmpetclinic.services.*;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 

@@ -6,11 +6,13 @@ import com.hayden.hmpetclinic.model.PetType;
 import com.hayden.hmpetclinic.services.OwnerService;
 import com.hayden.hmpetclinic.services.PetService;
 import com.hayden.hmpetclinic.services.PetTypeService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
 @Service
+@Profile(value = "map")
 public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
     //Used to persist associated objects
