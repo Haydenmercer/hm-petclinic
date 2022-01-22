@@ -14,6 +14,6 @@ public class VisitMapService extends AbstractMapService<Visit, Long> implements 
         if (visit.getPet() == null || visit.getPet().getOwner() == null || visit.getPet().getId() == null){
             throw new RuntimeException("Invalid Visit");
         }
-        return save(visit);
+        return super.save(visit);
     }
 }

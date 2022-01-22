@@ -2,7 +2,6 @@ package com.hayden.hmpetclinic.bootstrap;
 
 import com.hayden.hmpetclinic.model.*;
 import com.hayden.hmpetclinic.services.*;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -16,14 +15,16 @@ public class DataLoader  implements CommandLineRunner {
     private final PetService petService;
     private final PetTypeService petTypeService;
     private final SpecialtyService specialtyService;
+    private final VisitService visitService;
 
     //Autowired annotation not required for constructors
-    public DataLoader(OwnerService ownerService, VetService vetService, PetService petService, PetTypeService petTypeService, SpecialtyService specialtyService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetService petService, PetTypeService petTypeService, SpecialtyService specialtyService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petService = petService;
         this.petTypeService = petTypeService;
         this.specialtyService = specialtyService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -68,6 +69,7 @@ public class DataLoader  implements CommandLineRunner {
         owner1.getPets().add(pet1);
 
         ownerService.save(owner1);
+        petService.save(pet1);
 
         Pet pet2 = new Pet();
         pet1.setName("Dillon");
@@ -77,8 +79,17 @@ public class DataLoader  implements CommandLineRunner {
         owner2.getPets().add(pet2);
 
         ownerService.save(owner2);
+        petService.save(pet2);
 
         System.out.println("Loaded Pets");
+
+        Visit catVisit = new Visit();
+        catVisit.setPet(pet1);
+        catVisit.setDate(LocalDate.now());
+        catVisit.setDescription("Sneezy kitty");
+        visitService.save(catVisit);
+
+        System.out.println("Loaded Visits");
 
         Specialty radiology = new Specialty();
         radiology.setDescription("Radiology");
