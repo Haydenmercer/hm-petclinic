@@ -46,8 +46,15 @@ public class DataLoader  implements CommandLineRunner {
 
         System.out.println("Loaded PetTypes");
 
-        //Builder implementation
-        Owner owner1 = Owner.builder().firstName("Michael").lastName("Weston").address("123 Lane Road").city("Orgrimmar").telephone("07182775554").pets(new HashSet()).build();
+        //Builder implementation - seems to cause integrity constaint issues (probably because ID doesn't get generated for some reason.
+        //Owner owner1 = Owner.builder().firstName("Michael").lastName("Weston").address("123 Lane Road").city("Orgrimmar").telephone("07182775554").pets(new HashSet()).build();
+
+        Owner owner1 = new Owner();
+        owner1.setFirstName("Michael");
+        owner1.setLastName("Weston");
+        owner1.setAddress("123 Brickerel");
+        owner1.setCity("Miami");
+        owner1.setTelephone("1231231234");
 
         Owner owner2 = new Owner();
         owner2.setFirstName("Bob");

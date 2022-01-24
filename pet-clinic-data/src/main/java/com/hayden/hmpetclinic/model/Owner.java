@@ -20,19 +20,19 @@ public class Owner extends Person{
     @Column(name = "city")
     private String city;
 
-    @Builder
-    public Owner(String firstName, String lastName, String address, String city, String telephone, Set<Pet> pets) {
-        super(firstName, lastName);
-        this.address = address;
-        this.city = city;
-        this.telephone = telephone;
-        this.pets = pets;
-    }
-
     @Column(name = "telephone")
     private String telephone;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private Set<Pet> pets = new HashSet<>();
 
+    @Builder
+    public Owner(long id, String firstName, String lastName, String address, String city, String telephone, Set<Pet> pets) {
+        super(firstName, lastName);
+        this.id = id;
+        this.address = address;
+        this.city = city;
+        this.telephone = telephone;
+        this.pets = pets;
+    }
 }

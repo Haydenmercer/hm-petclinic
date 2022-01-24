@@ -1,8 +1,6 @@
 package com.hayden.hmpetclinic.services.map;
 
 import com.hayden.hmpetclinic.model.Owner;
-import com.hayden.hmpetclinic.model.Pet;
-import com.hayden.hmpetclinic.model.PetType;
 import com.hayden.hmpetclinic.services.OwnerService;
 import com.hayden.hmpetclinic.services.PetService;
 import com.hayden.hmpetclinic.services.PetTypeService;
@@ -27,7 +25,7 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
     @Override
     public Owner findByLastName(String lastName) {
         return map.entrySet().stream()
-                .filter(entry -> entry.getValue().equals(lastName))
+                .filter(entry -> entry.getValue().getLastName().equalsIgnoreCase(lastName))
                 .map(Map.Entry::getValue)
                 .findFirst()
                 .orElse(null);
