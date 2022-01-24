@@ -6,8 +6,6 @@ import com.hayden.hmpetclinic.services.VetService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
-import java.util.stream.Collectors;
-
 @Service
 @Profile(value = "map")
 public class VetMapService extends AbstractMapService<Vet, Long> implements VetService {
